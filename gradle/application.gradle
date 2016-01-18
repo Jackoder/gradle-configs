@@ -1,0 +1,9 @@
+apply plugin: 'com.android.application'
+
+apply from: "${rootDir}/config/gradle/dependencies.gradle"
+apply from: "${rootDir}/config/gradle/checkstyle.gradle"
+apply from: "${rootDir}/config/gradle/findbugs.gradle"
+
+apply from: "${rootDir}/config/gradle/android.gradle"
+apply from: "${rootDir}/config/gradle/retrolambda.gradle"
+

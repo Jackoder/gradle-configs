@@ -1,0 +1,12 @@
+ext {
+    isSnapshot = this.version.endsWith("-SNAPSHOT");
+
+    deployHost = "http://nexus.xx.xx"
+    deployReleaseUrl = "${deployHost}/nexus/content/repositories/android"
+    deploySnapshotUrl = "${deployHost}/nexus/content/repositories/android_snapshot"
+    nexusUsername = System.properties['deploySdpUsername']
+    nexusPassword = System.properties['deploySdpPassword']
+
+    deployLocalRepo = "file:///e:/repo"
+    deployUrl = isSnapshot ? "${deploySnapshotUrl}" : "${deployReleaseUrl}"
+}

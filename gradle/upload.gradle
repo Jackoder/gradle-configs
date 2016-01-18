@@ -1,0 +1,23 @@
+apply plugin: 'maven'
+apply from: "${rootDir}/config/gradle/deployment.gradle"
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            def conf = project.ext
+            def deployName = project.properties['deployName']
+            if (deployName == null) {
+                deployName = this.name
+            }
+
+            repository(url: "${conf.deployUrl}") {
+                authentication(userName: "${conf.nexusUsername}", password: "${conf.nexusPassword}")
+            }
+            pom.version = "${this.version}"
+            pom.groupId = "${this.group}"
+            pom.artifactId = "${deployName}"
+
+            println("deploy:" + pom.groupId + ":" + pom.artifactId + ":" + pom.version)
+        }
+    }
+}
