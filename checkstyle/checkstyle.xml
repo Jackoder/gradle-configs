@@ -191,10 +191,4 @@
         </module>
     </module>
 
-    <module name="SuppressionFilter">
-        <property name="file"
-                  default="checkstyle_suppressions.xml"
-                  value="config/checkstyle/checkstyle_suppressions.xml"/>
-    </module>
-
 </module>

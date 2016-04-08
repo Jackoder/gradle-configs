@@ -4,7 +4,7 @@ task findbugs(type: FindBugs) {
     ignoreFailures = false
     effort = "max"
     reportLevel = "high"
-    excludeFilter = new File("${project.rootDir}/config/findbugs/findbugs-filter.xml")
+    excludeFilter = new File("${cacheConfigs}/findbugs/findbugs-filter.xml")
     classes = files("${project.buildDir}/intermediates/classes")
 
     source 'src'
@@ -15,10 +15,10 @@ task findbugs(type: FindBugs) {
         xml.enabled = false
         html.enabled = true
         xml {
-            destination "$project.buildDir/reports/findbugs/findbugs.xml"
+            destination "${project.buildDir}/reports/findbugs/findbugs.xml"
         }
         html {
-            destination "$project.buildDir/reports/findbugs/findbugs.html"
+            destination "${project.buildDir}/reports/findbugs/findbugs.html"
         }
     }
 

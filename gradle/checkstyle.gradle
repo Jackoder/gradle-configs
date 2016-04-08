@@ -5,9 +5,12 @@ dependencies {
 }
 
 task checkstyle(type: Checkstyle) {
-    def path = "${rootDir}/config/checkstyle";
-    configFile file("${path}/checkstyle.xml")
-    configProperties.checkstyleSuppressionsPath = file("${path}/config/checkstyle/checkstyle_suppressions.xml").absolutePath
+	def cachePath = "${cacheConfigs}/checkstyle"
+	def file = new File("${cachePath}/nd_checkstyle.xml")
+	def fileSuppressions = new File("${cachePath}/checkstyle_suppressions.xml")
+    
+    configFile file
+    configProperties.checkstyleSuppressionsPath = fileSuppressions.absolutePath
     // Where is my suppressions file for checkstyle is...
     source 'src'
     include '**/*.java'

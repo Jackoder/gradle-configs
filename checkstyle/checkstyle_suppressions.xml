@@ -6,6 +6,4 @@
 <suppressions>
     <suppress checks=".*" files="[/\\]target[/\\]"/>
     <suppress checks=".*" files="[/\\]build[/\\]"/>
-    <suppress checks="MemberName"
-              files="com[\\/]zen[\\/]android[\\/]app[\\/]sample[\\/]data[\\/]model[\\/]"/>
 </suppressions>

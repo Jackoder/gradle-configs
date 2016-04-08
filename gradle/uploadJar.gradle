@@ -1,6 +1,7 @@
 apply plugin: 'maven'
-apply from: "${rootDir}/config/gradle/deployment.gradle"
-apply from: "${rootDir}/config/gradle/androidJarBuild.gradle"
+
+apply from: "${cacheConfigs}/gradle/deployment.gradle"
+apply from: "${cacheConfigs}/gradle/androidJarBuild.gradle"
 
 uploadJarArchives {
     repositories {
@@ -10,15 +11,15 @@ uploadJarArchives {
             if (deployName == null) {
                 deployName = this.name
             }
-
-            repository(url: "${conf.deployUrl}") {
+            repository(url: "${conf.deployReleaseUrl}") {
+                authentication(userName: "${conf.nexusUsername}", password: "${conf.nexusPassword}")
+            }
+            snapshotRepository(url: "${conf.deploySnapshotUrl}") {
                 authentication(userName: "${conf.nexusUsername}", password: "${conf.nexusPassword}")
             }
             pom.version = "${this.version}"
             pom.groupId = "${this.group}"
             pom.artifactId = "${deployName}"
-
-            println("deploy:" + pom.groupId + ":" + pom.artifactId + ":" + pom.version)
         }
     }
 }
