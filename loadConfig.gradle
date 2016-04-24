@@ -8,8 +8,7 @@ task prepareConfigCache {
             ["checkstyle/", "checkstyle.xml", "checkstyle_suppressions.xml"],
             ["gradle/", "android.gradle", "androidJarBuild.gradle", "application.gradle", "checkstyle.gradle", "dependencies.gradle", "deployment.gradle", "dexcount.gradle", "findbugs.gradle", "jacoco.gradle", "library.gradle", "librarySimplify.gradle", "retrolambda.gradle", "sonar.gradle", "upload.gradle", "uploadJar.gradle", "sign.gradle"],
             ["findbugs/", "findbugs-filter.xml"],
-            ["custom/", "application.gradle", "library.gradle", "base.gradle"],
-            ["custom/sign/", ".gitignore", "sign.properties"]
+            ["custom/", "application.gradle", "library.gradle", "base.gradle"]
     ]
 
     cacheFiles.each { files ->
